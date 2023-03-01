@@ -10,7 +10,8 @@ class App extends React.Component {
     message: "",
   };
   async componentDidMount() {
-    const owners = await  rental.methods.getOwners();
+    console.log("=====>getOwners")
+    const owners = await  rental.methods.getOwners().call();
     const owner1 = owners[0];
     const owner2 = owners[1];
 
@@ -42,8 +43,10 @@ class App extends React.Component {
         <h2>My Rental Portal</h2>
         <p>
           The amount paid will be split into the following owners' account directly,
-          Owner1 {this.state.owner1}
-          Owner2 {this.state.owner2}
+          <br/>
+          Owner1 -  {this.state.owner1}
+          <br/>
+          Owner2 - {this.state.owner2}
         </p>
 
         <hr />
